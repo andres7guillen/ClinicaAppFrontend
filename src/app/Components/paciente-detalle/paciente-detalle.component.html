@@ -1,0 +1,32 @@
+<h4>Detalle Paciente</h4>
+<hr>
+<div class="row text-right">
+    <div class="col">
+        <button routerLink="/Pacientes" class="btn btn-danger">
+    <i class="fa fa-arrow-left"> Regresar</i>
+  </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form>
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input disabled type="text" [(ngModel)]="paciente.nombreCompleto" name="nombres" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Número seguro social:</label>
+                <input disabled type="text" [(ngModel)]="paciente.numeroSeguroSocial" name="seguroSocial" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Código postal:</label>
+                <input disabled type="text" [(ngModel)]="paciente.codigoPostal" name="codigoPostal" required class="form-control">
+            </div>
+
+            <hr>
+        </form>
+
+    </div>
+</div>

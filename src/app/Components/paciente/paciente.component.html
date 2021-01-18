@@ -1,0 +1,47 @@
+<h1>Listado de Pacientes</h1>
+<hr>
+
+<div class="row">
+    <div class="col text-right">
+        <button routerLink="/pacienteCrear" class="btn btn-primary">
+      <i class="fa fa-plus"> Agregar</i>
+    </button>
+    </div>
+</div>
+
+<table class="table mt-3 animated fadeIn faster">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Código postal</th>
+            <th scope="col">Doctores</th>
+            <th scope="col">Número seguro social</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let paciente of listado; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{paciente.nombreCompleto}}</td>
+            <td>{{paciente.codigoPostal}}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let doctor of paciente.doctoresPacientes">{{doctor.doctor.nombreCompleto}}</li>
+                </ul>
+            </td>
+            <td>{{paciente.numeroSeguroSocial}}</td>
+            <td>
+                <button class="btn btn-info mr-1" [routerLink]="['/pacienteEditar', paciente.id]">
+          <i class="fa fa-pencil"></i>  
+        </button>
+                <button (click)="borrarPaciente(paciente,i)" class="btn btn-danger mr-1">
+          <i class="fa fa-trash"></i>  
+        </button>
+                <button [routerLink]="['/pacienteDetalle',paciente.id]" class="btn btn-info">
+          <i class="fa fa-eye"></i>  
+        </button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

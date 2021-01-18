@@ -1,0 +1,48 @@
+<h1>Listado de  Doctores</h1>
+<hr>
+
+<div class="row">
+  <div class="col text-right">
+    <button 
+    routerLink="/doctorCrear"
+    class="btn btn-primary">
+      <i class="fa fa-plus"> Agregar</i>
+    </button>
+  </div>
+</div>
+
+<table class="table mt-3 animated fadeIn faster">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Especialidad</th>
+      <th scope="col">Hospital</th>
+      <th scope="col">Número credencial</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doctor of listado; let i = index">   
+    <td>{{i + 1}}</td>   
+    <td>{{doctor.nombreCompleto}}</td>   
+    <td>{{doctor.especialidad}}  </td> 
+    <td>{{doctor.hospitalTrabajo}}</td>
+    <td>{{doctor.numeroCredencial}}</td>
+      <td>
+        <button class="btn btn-info mr-1"
+        [routerLink]="['/doctorEditar', doctor.id]">
+          <i class="fa fa-pencil"></i>  
+        </button>
+        <button (click)="borrarDoctor(doctor,i)" class="btn btn-danger mr-1">
+          <i class="fa fa-trash"></i>  
+        </button>
+        <button [routerLink]="['/doctorDetalle',doctor.id]" class="btn btn-info">
+          <i class="fa fa-eye"></i>  
+        </button>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>
+

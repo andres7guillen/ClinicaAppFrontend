@@ -1,0 +1,47 @@
+<h4>Editar Doctor</h4>
+<hr>
+<div class="row text-right">
+  <div class="col">
+    <button 
+  routerLink="/Doctores"
+  class="btn btn-danger">
+    <i class="fa fa-arrow-left"> Regresar</i>
+  </button>
+  </div>  
+</div>
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+    <form (ngSubmit)="guardar(f)" #f="ngForm">
+      <div class="form-group">
+        <label>Nombre completo:</label>
+        <input type="text" [(ngModel)]="doctor.nombreCompleto" name="nombres" required class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Especialidad:</label>
+        <input type="text" [(ngModel)]="doctor.especialidad" name="especialidad" required class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Número credencial:</label>
+        <input type="text" [(ngModel)]="doctor.numeroCredencial" name="numeroCredencial" required class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Hospital trabajo:</label>
+        <input type="text" [(ngModel)]="doctor.hospitalTrabajo" name="hospitalTrabajo" required class="form-control">
+      </div>
+    
+      <hr>
+      <div class="form-group text-center">
+        <button type="submit" [disabled]="f.invalid" class="btn btn-primary w-25">
+          <i class="fa fa-save"></i>
+          Guardar
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

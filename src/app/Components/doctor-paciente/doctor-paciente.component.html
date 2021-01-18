@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h6>Doctores</h6>
+            <!-- <select required [(ngModel)]="doctorSeleccionado" (ngModelChange)="adicionarDoctor($event)" name="entidadIds">
+                <option *ngFor="let doctor of listadoDoctores" [ngValue]="doctor">{{doctor.nombreCompleto}}</option>
+              </select> -->
+
+            <select [(ngModel)]="doctorSeleccionado" (ngModelChange)="seleccionDoctor($event)" name="doctorSeleccionado">
+                <option *ngFor="let doctor of listadoDoctores" [ngValue]="doctor">
+                    {{doctor.nombreCompleto}}
+                </option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <h6>Pacientes</h6>
+            <select [(ngModel)]="pacienteSeleccionado" (ngModelChange)="seleccionPaciente($event)" name="pacienteSeleccioando">
+                <option *ngFor="let paciente of listadoPacientes" [ngValue]="paciente">
+                    {{paciente.nombreCompleto}}
+                </option>
+            </select>
+
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <table class="table table-striped ">
+        <thead>
+            <th>
+                Doctor
+            </th>
+            <th>
+                Paciente
+            </th>
+            <th>
+                Acción
+            </th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    {{doctorPaciente.doctor.nombreCompleto}}
+                </td>
+                <td>
+                    {{doctorPaciente.paciente.nombreCompleto}}
+                </td>
+                <td>
+                    <button type="button" (click)="asociar()">ASOCIAR</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
